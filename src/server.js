@@ -18,7 +18,8 @@ export const setupServer = () => {
   );
 
   app.use('*', (req, res) => {
-    //без next, бо зараз помилку далі не передаємо в наступний обробник
+    //без next, бо зараз помилку далі не передаємо в наступний
+    //обробник, а eslint на next без виклику свариться
     res.status(404).json({
       message: 'Not found',
     });
