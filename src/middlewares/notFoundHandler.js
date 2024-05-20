@@ -1,5 +1,3 @@
-// src/middlewares/notFoundHandler.js
-
 export const notFoundHandler = (req, res, next) => {
   //приховуємо попереждення від лінтеру щодо невикористованого доки що next
   if (next === 'fake') {
