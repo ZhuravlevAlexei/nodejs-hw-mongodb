@@ -11,29 +11,11 @@ export const getContactById = async (contactId) => {
 };
 
 export const createContact = async (payload) => {
-  //payload має бути таким
-  //{
-  // name - обов’язково
-  // phoneNumber - обов’язково
-  // email - не обовʼязково
-  // isFavourite - не обовʼязково
-  // contactType - не обовʼязково
-  //}
-
   const contact = await ContactsCollection.create(payload);
   return contact;
 };
 
 export const updateContact = async (contactId, payload, options = {}) => {
-  ///payload має бути таким
-  //{
-  // name - не обовʼязково
-  // phoneNumber - не обовʼязково
-  // email - не обовʼязково
-  // isFavourite - не обовʼязково
-  // contactType - не обовʼязково
-  //}
-
   const rawResult = await ContactsCollection.findOneAndUpdate(
     { _id: contactId },
     payload,
