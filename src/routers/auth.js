@@ -1,15 +1,14 @@
 import { Router } from 'express';
-
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { registerUserSchema } from '../validation/auth.js';
 import { registerUserController } from '../controllers/auth.js';
 import { validateBody } from '../middlewares/validateBody.js';
+import { loginUserSchema } from '../validation/auth.js';
 import {
-  loginUserSchema,
   loginUserController,
   logoutUserController,
   refreshUserSessionController,
-} from '../validation/auth.js';
+} from '../controllers/auth.js';
 import { authenticate } from '../middlewares/authenticate.js';
 
 const router = Router();

@@ -1,6 +1,11 @@
 import { HttpError } from 'http-errors';
 
-export const errorHandler = (err, req, res) => {
+export const errorHandler = (err, req, res, next) => {
+  //приховуємо попереждення від лінтеру щодо невикористованого доки що next
+  if (next === 'fake') {
+    next(err);
+  }
+
   if (err instanceof HttpError) {
     res.status(err.status).json({
       status: err.status,
