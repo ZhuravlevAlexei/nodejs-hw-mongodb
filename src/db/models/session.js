@@ -1,4 +1,3 @@
-// import { required } from 'joi';
 import { model, Schema } from 'mongoose';
 
 const sessionsSchema = new Schema(
@@ -24,7 +23,10 @@ const sessionsSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true, versionKey: false },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
 );
 
 export const SessionsCollection = model('sessions', sessionsSchema);
