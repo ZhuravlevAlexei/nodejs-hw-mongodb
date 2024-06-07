@@ -134,7 +134,41 @@ export const sendResetToken = async (email) => {
     throw createHttpError(
       500,
       'Failed to send the email, please try again later.',
-      { detail: err.message, cause: err },
+      {
+        detail: err.message,
+        cause: err,
+      },
     );
   }
+};
+
+export const resetPassword = async (payload) => {
+  let entries;
+
+  try {
+    entries = jwt.verify(payload.token, env('JWT_SECRET'));
+  } catch (err) {
+    if (err instanceof Error)
+      throw createHttpError(401, 'Token is expired or invalid.', {
+        detail: err.message,
+        cause: err,
+      });
+    throw err;
+  }
+
+  const user = await UsersCollection.findOne({
+    email: entries.email,
+    _id: entries.sub,
+  });
+
+  if (!user) {
+    throw createHttpError(404, 'User not found');
+  }
+
+  const encryptedPassword = await bcrypt.hash(payload.password, 10);
+
+  await UsersCollection.updateOne(
+    { _id: user._id },
+    { password: encryptedPassword },
+  );
 };
