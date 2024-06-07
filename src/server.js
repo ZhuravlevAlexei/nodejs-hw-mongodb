@@ -10,7 +10,18 @@ import { env } from './utils/env.js';
 const PORT = Number(env('PORT', '3000'));
 export const setupServer = () => {
   const app = express();
-  app.use(express.json());
+
+  // app.use(express.json());
+  // а тепер може бути multipart/form-data треба перевіряти що у Content-Type
+  // сможемо створювати контакт одразу з фото
+  app.use((req, res, next) => {
+    if (req.is('application/json')) {
+      express.json()(req, res, next);
+    } else {
+      next();
+    }
+  });
+
   app.use(cors());
   app.use(cookieParser());
 

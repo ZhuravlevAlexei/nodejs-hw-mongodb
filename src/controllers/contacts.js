@@ -67,6 +67,9 @@ export const getContactByIdController = async (req, res, next) => {
 };
 
 export const createContactController = async (req, res) => {
+  //працює якщо запит content-type = form-data,
+  //тобто всі поля задані через keys у тому числі і фото
+  // та працює якщо запит content-type = application/json raw дані задані об'єктом без фото
   const photo = req.file;
   let photoUrl;
 
