@@ -33,7 +33,7 @@ router.post(
 
 router.post(
   '/refresh',
-  authenticate,
+  // authenticate,
   ctrlWrapper(refreshUserSessionController),
 );
 
@@ -48,7 +48,8 @@ router.post(
   validateBody(resetPasswordSchema),
   ctrlWrapper(resetPasswordController),
 );
-resetPasswordController;
+
+// resetPasswordController;
 
 router.post('/logout', authenticate, ctrlWrapper(logoutUserController));
 
