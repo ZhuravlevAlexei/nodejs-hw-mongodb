@@ -49,8 +49,6 @@ router.post(
   ctrlWrapper(resetPasswordController),
 );
 
-// resetPasswordController;
-
 router.post('/logout', authenticate, ctrlWrapper(logoutUserController));
 
 export default router;
