@@ -17,11 +17,11 @@ requestBody:
           email:
             description: User's email
             type: string
-            example: bob@me.com
+            example: alcrane@outlook.com
           password:
             description: Password
             type: string
-            example: immortal
+            example: karp
 responses:
   '200':
     description: Successfully logged in an user!

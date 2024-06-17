@@ -20,10 +20,17 @@ requestBody:
       schema:
         type: object
         properties:
+          name:
+            type: string
           phoneNumber:
             type: string
           email:
             type: string
+          isFavourite:
+            type: boolean
+          contactType:
+            type: string
+            enum: ['work', 'home', 'personal']
           photo:
             description: Contact's photo file (*.jpg, *.png, etc.)
             type: string
