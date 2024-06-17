@@ -15,6 +15,7 @@ tags:
     description: Operations about contacts
 servers:
   - url: <http://localhost:3000>
+  - url: <https://nodejs-hw-mongodb-qggc.onrender.com>
   # - url: #посилання на задеплоєний сайт
 paths:
   # тут будуть посилання на ендпоінти
