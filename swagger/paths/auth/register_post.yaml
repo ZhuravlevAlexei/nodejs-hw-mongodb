@@ -33,10 +33,6 @@ responses:
     content:
       application/json:
         schema:
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer
@@ -46,12 +42,6 @@ responses:
               example: Successfully registered a user!
             data:
               type: object
-              required:
-                - name
-                - email
-                - _id
-                - createdAt
-                - updatedAt
               properties:
                 name:
                   description: New user name

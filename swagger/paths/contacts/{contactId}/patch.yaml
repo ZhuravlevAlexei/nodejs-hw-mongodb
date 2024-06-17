@@ -13,7 +13,7 @@ parameters:
       type: string
       example: '6655a67a37bc0571c96d9655'
 requestBody:
-  description: Some properties can be updated - "name", "phoneNumber", "email", "isFavourite", "contactType"
+  description: Some properties can be updated - "name", "phoneNumber", "email", "isFavourite", "contactType", "photo"
   required: false
   content:
     multipart/form-data:
@@ -25,7 +25,7 @@ requestBody:
           email:
             type: string
           photo:
-            description: Contact's photo file (*.jpg, *.png)
+            description: Contact's photo file (*.jpg, *.png, etc.)
             type: string
             format: binary
       encoding:
@@ -55,13 +55,6 @@ responses:
       application/json:
         schema:
           type: object
-          required:
-            - _id
-            - name
-            - phoneNumber
-            - email
-            - isFavourite
-            - contactType
           properties:
             _id:
               description: "Contact's id"

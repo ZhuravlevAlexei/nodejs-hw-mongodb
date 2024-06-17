@@ -10,6 +10,12 @@ requestBody:
     multipart/form-data:
       schema:
         type: object
+        required:
+          - name
+          - phoneNumber
+          - email
+          - isFavourite
+          - contactType
         properties:
           name:
             description: "Contact's name"
@@ -55,10 +61,6 @@ responses:
       application/json:
         schema:
           type: object
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer

@@ -3,8 +3,7 @@ tags:
 summary: Reset password
 operationId: resetPassword
 description: Reset password
-security:
-  - bearerAuth: [Not needed]
+security: []
 requestBody:
   content:
     application/json:
@@ -28,10 +27,6 @@ responses:
     content:
       application/json:
         schema:
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer
@@ -41,6 +36,7 @@ responses:
               example: Password has been successfully reset!
             data:
               type: object
+              description: Empty object
               example: {}
   '401':
     description: Token is expired or invalid.
@@ -48,10 +44,6 @@ responses:
       application/json:
         schema:
           type: object
-          required:
-            - status
-              - message
-              - data
           properties:
             status:
               type: integer
@@ -61,8 +53,6 @@ responses:
               example: UnauthorizedError
             data:
               type: object
-              required:
-                - message
               properties:
                 message:
                   type: string

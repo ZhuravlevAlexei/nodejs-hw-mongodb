@@ -28,10 +28,6 @@ responses:
     content:
       application/json:
         schema:
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer

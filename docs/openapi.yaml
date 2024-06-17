@@ -9,10 +9,10 @@ info:
     API для керування контактами користувачів
 tags:
   # теги, що ви будете використовувати
-  - name: Contacts
-    description: Operations about contacts
   - name: Auth
     description: Operations about auth
+  - name: Contacts
+    description: Operations about contacts
 servers:
   - url: <http://localhost:3000>
   # - url: #посилання на задеплоєний сайт
@@ -37,10 +37,10 @@ paths:
     post:
       $ref: '../swagger/paths/auth/logout_post.yaml'
   /contacts:
-    get:
-      $ref: ../swagger/paths/contacts/get.yaml
     post:
       $ref: '../swagger/paths/contacts/post.yaml'
+    get:
+      $ref: ../swagger/paths/contacts/get.yaml
   /contacts/{contactId}:
     get:
       $ref: ../swagger/paths/contacts/{contactId}/get.yaml
@@ -53,3 +53,4 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+      bearerFormat: JWT

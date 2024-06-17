@@ -3,8 +3,7 @@ tags:
 summary: Resfresh user session
 operationId: refreshUserSession
 description: Resfresh user session
-security:
-  - bearerAuth: [not required]
+security: []
 parameters:
   - name: refreshToken
     in: cookie
@@ -12,17 +11,12 @@ parameters:
     schema:
       description: Refresh token
       type: string
-
 responses:
   '200':
     description: Successfully refreshed a session!
     content:
       application/json:
         schema:
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer
@@ -42,10 +36,6 @@ responses:
       application/json:
         schema:
           type: object
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer
@@ -55,8 +45,6 @@ responses:
               example: Session token expired
             data:
               type: object
-              required:
-                - message
               properties:
                 message:
                   type: string

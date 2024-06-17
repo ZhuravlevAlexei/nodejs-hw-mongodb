@@ -3,10 +3,6 @@ content:
   application/json:
     schema:
       type: object
-      required:
-        - status
-        - message
-        - data
       properties:
         status:
           type: integer
@@ -16,8 +12,6 @@ content:
           example: NotFoundError
         data:
           type: object
-          required:
-            - message
           properties:
             message:
               description: Error message

@@ -3,13 +3,14 @@ tags:
 summary: Query to send a reset email
 operationId: sendResetEmail
 description: Query to send a reset email
-security:
-  - bearerAuth: [Not requaired]
+security: []
 requestBody:
   content:
     application/json:
       schema:
         type: object
+        required:
+          - email
         properties:
           email:
             type: string
@@ -21,10 +22,6 @@ responses:
     content:
       application/json:
         schema:
-          required:
-            - status
-            - message
-            - data
           properties:
             status:
               type: integer
