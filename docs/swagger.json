@@ -12,9 +12,6 @@
   "servers": [
     {
       "url": "https://nodejs-hw-mongodb-qggc.onrender.com"
-    },
-    {
-      "url": "localhost:3000"
     }
   ],
   "tags": [
@@ -154,12 +151,12 @@
                   "email": {
                     "description": "User's email",
                     "type": "string",
-                    "example": "bob@me.com"
+                    "example": "alcrane@outlook.com"
                   },
                   "password": {
                     "description": "Password",
                     "type": "string",
-                    "example": "immortal"
+                    "example": "karp"
                   }
                 }
               }
@@ -854,11 +851,25 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string"
+                  },
                   "phoneNumber": {
                     "type": "string"
                   },
                   "email": {
                     "type": "string"
+                  },
+                  "isFavourite": {
+                    "type": "boolean"
+                  },
+                  "contactType": {
+                    "type": "string",
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ]
                   },
                   "photo": {
                     "description": "Contact's photo file (*.jpg, *.png, etc.)",

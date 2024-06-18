@@ -19,6 +19,10 @@ import { env } from '../utils/env.js';
 import { sendEmail } from '../utils/sendMail.js';
 
 export const registerUser = async (payload) => {
+  //перевіримо, чи такий user вже зарєєстрований
+  const user = await UsersCollection.findOne({ email: payload.email });
+  if (user) throw createHttpError(409, 'Conflict. User is already registered!');
+
   const encryptedPassword = await bcrypt.hash(payload.password, 10);
 
   return await UsersCollection.create({

@@ -65,3 +65,21 @@ responses:
                   example: 2024-06-16T11:57:49.764Z
   '400':
     $ref: ../../components/responses/400.yaml
+  '409':
+    description: User is already registered!
+    content:
+      application/json:
+        schema:
+          properties:
+            status:
+              type: integer
+              example: 409
+            message:
+              type: string
+              example: ConflictError
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Conflict. User is already registered!
